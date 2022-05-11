@@ -11,10 +11,10 @@ const eventsRoute = require('./src/routes/eventsRoute')
 //app config
 const app = express()
 dbConnect()
+app.use(cors());
 const port = process.env.PORT || 3000
 
 //middleware/
-app.use(cors());
 app.use(express.json());
 
 //ruta publica y rutas
