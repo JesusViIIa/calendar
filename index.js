@@ -6,6 +6,7 @@ const cors = require('cors')
 const dbConnect = require('./src/database/database')
 const authRoute = require('./src/routes/authRoute')
 const eventsRoute = require('./src/routes/eventsRoute')
+const path = require('path');
 
 
 //app config
@@ -21,6 +22,8 @@ app.use(express.json());
 app.use(express.static('public'))
 app.use('/api/auth', authRoute);
 app.use('/api/events', eventsRoute);
-
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public', 'index.html'));
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
