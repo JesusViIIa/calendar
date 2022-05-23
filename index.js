@@ -13,7 +13,7 @@ const path = require('path');
 const app = express()
 dbConnect()
 app.use(cors());
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 80
 
 //middleware/
 app.use(express.json());
